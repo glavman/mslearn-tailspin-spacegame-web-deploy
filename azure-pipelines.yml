@@ -119,6 +119,22 @@ stages:
     variables:
     - group: 'Release'
     steps: 
+      - script: |
+        echo "Installing ChromeDriver..."
+        choco install chromedriver
+        echo "Adding ChromeDriver to PATH..."
+        echo "##vso[task.prependpath]$(choco install chromedriver --output-directory)"
+
+        echo "Installing GeckoDriver..."
+        choco install geckodriver
+        echo "Adding GeckoDriver to PATH..."
+        echo "##vso[task.prependpath]$(choco install geckodriver --output-directory)"
+
+        echo "Installing EdgeDriver..."
+        choco install selenium-chromium-edge-driver
+        echo "Adding EdgeDriver to PATH..."
+        echo "##vso[task.prependpath]$(choco install selenium-chromium-edge-driver --output-directory)"
+      displayName: 'Install WebDrivers'
     - task: UseDotNet@2
       displayName: 'Use .NET SDK $(dotnetSdkVersion)'
       inputs:
