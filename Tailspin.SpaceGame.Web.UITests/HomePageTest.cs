@@ -60,7 +60,7 @@ namespace UITests
                 //to run it locally use hardcoded url below:
                 //string url = "http://localhost:5000";
                 //to run it in the pipeline use the url from the environment variable
-                string url = "https://tailspin-space-game-web-test-29740.azurewebsites.net/"
+                string url = "https://tailspin-space-game-web-test-29740.azurewebsites.net/";
                 driver.Navigate().GoToUrl(url + "/");
 
                 // Wait for the page to be completely loaded.
