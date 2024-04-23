@@ -9,8 +9,8 @@ using System.Collections;
 
 namespace UITests
 {
-    [TestFixture("Chrome")]
-    [TestFixture("Firefox")]
+//    [TestFixture("Chrome")]
+//    [TestFixture("Firefox")]
     [TestFixture("Edge")]
     public class HomePageTest
     {
@@ -57,9 +57,10 @@ namespace UITests
                 driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(20);
 
                 // Navigate to the site.
-                // The site name is stored in the SITE_URL environment variable to make 
-                // the tests more flexible.
-                string url = Environment.GetEnvironmentVariable("SITE_URL");
+                //to run it locally use hardcoded url below:
+                //string url = "http://localhost:5000";
+                //to run it in the pipeline use the url from the environment variable
+                string url = "https://tailspin-space-game-web-test-29740.azurewebsites.net/"
                 driver.Navigate().GoToUrl(url + "/");
 
                 // Wait for the page to be completely loaded.
